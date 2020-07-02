@@ -9,7 +9,7 @@ const contractPath = path.resolve(
 );
 const source = fs.readFileSync(contractPath, 'utf8');
 
-module.exports = JSON.parse(
+const output = JSON.parse(
   solc.compile(
     JSON.stringify({
       language: 'Solidity',
@@ -32,18 +32,7 @@ module.exports = JSON.parse(
   )
 ).contracts['StorageIotOnChain.sol'];
 
-// console.log(JSON.parse(solc.compile(JSON.stringify({
-//   language: 'Solidity',
-//   sources: {
-//     'lottery.sol': {
-//       content: source,
-//     },
-//   },
-//   settings: {
-//     outputSelection: {
-//       '*': {
-//         '*': ['evm', 'bytecode'],
-//       },
-//     },
-//   },
-// }))).contracts['StorageIotOnChain.sol'].StorageIotOnChain);
+const interface = JSON.parse(output.StorageIotOnChain.metadata).output.abi;
+const bytecode = output.StorageIotOnChain.evm.bytecode.object;
+
+module.exports = { interface, bytecode };

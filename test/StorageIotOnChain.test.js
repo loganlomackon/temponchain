@@ -1,9 +1,7 @@
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
-const output = require('../compile');
-const interface = JSON.parse(output.StorageIotOnChain.metadata).output.abi;
-const bytecode = output.StorageIotOnChain.evm.bytecode.object;
+const { interface, bytecode } = require('../compile');
 
 //package.json: "test": "mocha"
 //Command: npm run test
@@ -24,7 +22,18 @@ beforeEach(async () => {
 });
 
 describe('StorageIotOnChain', () => {
-  it('deploy a contract', () => {
-    console.log(storageIotOnChain);
+  it('Deploy a contract', () => {
+    assert.ok(storageIotOnChain.options.address);
+  });
+
+  it('Has a default num', async () => {
+    const num = await storageIotOnChain.methods.testNum().call();
+    assert.equal(num, 0);
+  });
+
+  it('Can change num', async () => {
+    await storageIotOnChain.methods.setter(100).send({ from: accounts[0] });
+    const num = await storageIotOnChain.methods.testNum().call();
+    assert.equal(num, 100);
   });
 });
