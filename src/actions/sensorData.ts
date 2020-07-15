@@ -21,10 +21,17 @@ const url = 'http://localhost:8092/api/sensor_data';
 export const getListSensorData = () => {
   return async (dispatch: Dispatch) => {
     const response = await axios.get<SensorData[]>(url);
-    console.log(response.data);
-    dispatch<GetListSensorDataAction>({
-      type: ActionTypes.getList,
-      data: response.data,
-    });
+    if (response.data) {
+      console.log(response.data);
+      dispatch<GetListSensorDataAction>({
+        type: ActionTypes.getList,
+        data: response.data,
+      });
+    } else {
+      dispatch<GetListSensorDataAction>({
+        type: ActionTypes.getList,
+        data: [],
+      });
+    }
   };
 };

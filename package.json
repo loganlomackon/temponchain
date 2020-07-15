@@ -7,14 +7,21 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@truffle/hdwallet-provider": "^1.0.37",
+    "@types/body-parser": "^1.19.0",
+    "@types/cookie-session": "^2.0.41",
+    "@types/express": "^4.17.7",
     "@types/jest": "^24.9.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^12.12.39",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "^7.1.8",
+    "@types/react-redux": "^7.1.9",
     "@types/react-table": "^7.0.17",
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
     "fs-extra": "^9.0.1",
     "ganache-cli": "^6.9.1",
     "mocha": "^8.0.1",
@@ -25,7 +32,8 @@
     "react-table": "^7.1.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "solc": "^0.6.10",
+    "reflect-metadata": "^0.1.13",
+    "solc": "^0.6.11",
     "truffle-hdwallet-provider": "^1.0.17",
     "typescript": "^3.7.5",
     "web3": "^1.2.9"
@@ -33,7 +41,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,6 +60,10 @@
     ]
   },
   "devDependencies": {
-    "@types/material-ui": "^0.21.7"
+    "@types/assert": "^1.5.1",
+    "@types/material-ui": "^0.21.7",
+    "@types/underscore": "^1.10.3",
+    "assert": "^2.0.0",
+    "ts-node": "^8.10.2"
   }
 }
