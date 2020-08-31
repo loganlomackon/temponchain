@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import { sensorDataReducer } from './sensorData';
-import { SensorData } from '../actions';
+import { SensorPageData } from '../actions';
 
 export interface StoreState {
-  data: SensorData[];
+  data: SensorPageData;
 }
 
 export const reducers = combineReducers<StoreState>({

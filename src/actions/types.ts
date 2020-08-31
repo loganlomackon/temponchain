@@ -1,7 +1,3 @@
-import { GetListSensorDataAction } from './sensorData';
-
 export enum ActionTypes {
-  getList,
+  getRecentSensorDataList,
 }
-
-export type Action = GetListSensorDataAction;
